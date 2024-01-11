@@ -18,7 +18,7 @@ import java.time.Instant;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<CustomError> rersourceNotFound(ResourceNotFoundException e, HttpServletRequest request){
+    public ResponseEntity<CustomError> resourceNotFound(ResourceNotFoundException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.NOT_FOUND;
         CustomError error = new CustomError(Instant.now(), status.value(),
                 e.getMessage(),request.getRequestURI());
