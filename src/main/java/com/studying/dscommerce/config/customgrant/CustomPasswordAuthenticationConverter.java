@@ -1,4 +1,4 @@
-package com.studying.dscommerce.customgrant;
+package com.studying.dscommerce.config.customgrant;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.lang.Nullable;

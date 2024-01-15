@@ -1,4 +1,4 @@
-package com.studying.dscommerce.customgrant;
+package com.studying.dscommerce.config.customgrant;
 
 import org.springframework.security.core.GrantedAuthority;
 

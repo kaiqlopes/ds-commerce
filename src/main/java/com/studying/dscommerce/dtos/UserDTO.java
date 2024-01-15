@@ -1,6 +1,11 @@
 package com.studying.dscommerce.dtos;
 
 import com.studying.dscommerce.entities.User;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserDTO {
 
@@ -8,23 +13,31 @@ public class UserDTO {
     private String name;
     private String email;
     private String phone;
-    private String password;
+    private LocalDate birthDate;
 
-    public UserDTO(Long id, String name, String email, String phone) {
+    private Set<String> roles = new HashSet<>();
+
+    public UserDTO(Long id, String name, String email, String phone, LocalDate birthDate) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
-    }
-
-    public UserDTO() {
+        this.birthDate = birthDate;
     }
 
     public UserDTO(User entity) {
         id = entity.getId();
         name = entity.getName();
         email = entity.getEmail();
-        phone =  entity.getPhone();
+        phone = entity.getPhone();
+        birthDate = entity.getBirthDate();
+
+        for (GrantedAuthority role : entity.getAuthorities()) {
+            roles.add(role.getAuthority());
+        }
+    }
+
+    public UserDTO() {
     }
 
     public Long getId() {
@@ -59,11 +72,11 @@ public class UserDTO {
         this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public Set<String> getRoles() {
+        return roles;
     }
 }
