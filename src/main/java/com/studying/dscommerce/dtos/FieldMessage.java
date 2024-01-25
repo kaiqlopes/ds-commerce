@@ -2,19 +2,19 @@ package com.studying.dscommerce.dtos;
 
 public class FieldMessage {
 
-    String name;
-    String message;
+    String fieldName;
+    String fieldMessage;
 
     public FieldMessage(String name, String message) {
-        this.name = name;
-        this.message = message;
+        this.fieldName = name;
+        this.fieldMessage = message;
     }
 
-    public String getName() {
-        return name;
+    public String getFieldName() {
+        return fieldName;
     }
 
-    public String getMessage() {
-        return message;
+    public String getFieldMessage() {
+        return fieldMessage;
     }
 }
